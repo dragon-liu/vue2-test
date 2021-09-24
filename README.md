@@ -25,3 +25,8 @@
     1. vue.js是完整版的Vue，包含：核心功能 + 模板解析器。
     2. vue.runtime.xxx.js是运行版的Vue，只包含：核心功能；没有模板解析器。
 2. 因为vue.runtime.xxx.js没有模板解析器，所以不能使用template这个配置项，需要使用render函数接收到的createElement函数去指定具体内容。
+
+## vue.config.js配置文件
+
+1. 使用vue inspect > output.js可以查看到Vue脚手架的默认配置。
+2. 使用vue.config.js可以对脚手架进行个性化定制，详情见：https://cli.vuejs.org/zh
