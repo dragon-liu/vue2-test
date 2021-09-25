@@ -1,7 +1,7 @@
 <template>
   <li>
     <label>
-      <input type="checkbox" :checked="todo.done"/>
+      <input type="checkbox" :checked="todo.done" @change="updateCheck(todo.id)"/>
       <span>{{todo.title}}</span>
     </label>
     <button class="btn btn-danger" style="display:none">删除</button>
@@ -11,17 +11,16 @@
 <script>
 export default {
   name:'MyItem',
-  props: ['todo'],
+  props: ['todo','checkTodo'],
   data() {
     return {
 
     }
   },
   methods: {
-
-  },
-  components: {
-
+    updateCheck(id){
+      this.checkTodo(id)
+    }
   }
 }
 </script>
