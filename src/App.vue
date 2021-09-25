@@ -25,11 +25,15 @@ export default {
   },
   data() {
     return {
-      todos:[
-					{id:'001',title:'抽烟',done:true},
-					{id:'002',title:'喝酒',done:false},
-					{id:'003',title:'开车',done:true}
-				]
+      todos:JSON.parse(localStorage.getItem('todos')) || [] //NOTE:这里别忘了解析，直接读取的是Json字符串不是对象
+    }
+  },
+  watch:{
+    todos:{
+      deep:true,
+      handler(value){
+        localStorage.setItem('todos',JSON.stringify(value))
+      }
     }
   },
   methods: {

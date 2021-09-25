@@ -21,6 +21,7 @@ export default {
   },
   computed:{
     todoDone(){
+      console.log(this)
       return this.todos.reduce((pre,todo)=>{return pre + (todo.done?1:0) }, 0) //NOTE:注意三元运算符优先级
     },
     allTodo(){
