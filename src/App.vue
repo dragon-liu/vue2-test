@@ -2,8 +2,8 @@
   <div id="root">
     <div class="todo-container">
       <div class="todo-wrap">
-        <MyHeader></MyHeader>
-        <MyList></MyList>
+        <MyHeader :addtodo="addTodo"></MyHeader>
+        <MyList :todos="todos"></MyList>
         <MyFooter></MyFooter>
       </div>
     </div>
@@ -22,7 +22,25 @@ export default {
     MyHeader,
     MyList,
     MyFooter
-  }
+  },
+  data() {
+    return {
+      todos:[
+					{id:'001',title:'抽烟',done:true},
+					{id:'002',title:'喝酒',done:false},
+					{id:'003',title:'开车',done:true}
+				]
+    }
+  },
+  methods: {
+    addTodo(todoObj){
+      if(!todoObj.title.trim()){
+        alert('请输入有效数据')
+        return
+      } 
+      this.todos.unshift(todoObj)
+    }
+  },
 }
 </script>
 
