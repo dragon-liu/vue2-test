@@ -3,7 +3,7 @@
     <div class="todo-container">
       <div class="todo-wrap">
         <MyHeader @addtodo="addTodo"></MyHeader>
-        <MyList :todos="todos" :checkTodo="checkTodo" :deleteTodo="deleteTodo"></MyList>
+        <MyList :todos="todos"></MyList>
         <MyFooter :todos="todos" @checkAll="checkAll" @clearAllDone="clearAllDone"></MyFooter>
       </div>
     </div>
@@ -36,7 +36,7 @@ export default {
       }
     }
   },
-  methods: {
+  methods:{
     addTodo(todoObj){
       if(!todoObj.title.trim()){
         alert('请输入有效数据')
@@ -63,6 +63,14 @@ export default {
       })
     }
   },
+  mounted(){
+    this.$bus.$on('checkTodo',this.checkTodo)
+    this.$bus.$on('deleteTodo',this.deleteTodo)
+  },
+  beforeDestroy(){
+    this.$bus.$off('checkTodo')
+    this.$bus.$off('deleteTodo')
+  }
 }
 </script>
 

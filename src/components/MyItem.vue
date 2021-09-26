@@ -11,7 +11,7 @@
 <script>
 export default {
   name:'MyItem',
-  props: ['todo','checkTodo','deleteTodo'],
+  props: ['todo'],
   data() {
     return {
 
@@ -19,11 +19,11 @@ export default {
   },
   methods: {
     updateCheck(id){
-      this.checkTodo(id)
+      this.$bus.$emit('checkTodo', id) 
     },
     handleDelete(id){
       if(confirm('确定要删除吗?')){
-        this.deleteTodo(id)
+        this.$bus.$emit('deleteTodo', id) 
       }
     }
   }
