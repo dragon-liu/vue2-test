@@ -13,5 +13,3 @@
 		components:{Search,List}
 	}
 </script>
-
-
