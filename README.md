@@ -615,3 +615,4 @@ module.exports = {
    ```
 
 > 备注：mapActions与mapMutations使用时，若需要传递参数需要：在模板中绑定事件时传递好参数，否则参数是事件对象。
+
