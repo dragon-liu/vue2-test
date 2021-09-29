@@ -26,12 +26,13 @@
 			}
 		},
 		computed:{
-			...mapState(['sum','school','subject','personList']),
-			...mapGetters(['bigSum'])
+			...mapState('countAbout',['sum','school','subject']),
+			...mapState('personAbout',['personList']),
+			...mapGetters('countAbout',['bigSum'])
 		},
 		methods: {
-			...mapMutations({increment:'JIA',decrement:'JIAN'}),
-			...mapActions({incrementOdd:'jiaOdd',incrementWait:'jiaWait'})
+			...mapMutations({increment:'countAbout/JIA',decrement:'countAbout/JIAN'}),
+			...mapActions({incrementOdd:'countAbout/jiaOdd',incrementWait:'countAbout/jiaWait'})
 			// increment(){
 			// 	this.$store.commit('JIA',this.n)
 			// },
