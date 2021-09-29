@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<h1>当前求和为：{{$store.state.sum}}</h1>
+		<h1>当前求和为：{{sum}}</h1>
+		<h3>当前求和放大10倍为：{{bigSum}}</h3>
 		<select v-model.number="n">
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -14,13 +15,17 @@
 </template>
 
 <script>
-	import {mapActions,mapMutations} from 'vuex'
+	import {mapActions,mapGetters,mapMutations, mapState} from 'vuex'
 	export default {
 		name:'Count',
 		data() {
 			return {
 				n:1, //用户选择的数字
 			}
+		},
+		computed:{
+			...mapState(['sum']),
+			...mapGetters(['bigSum'])
 		},
 		methods: {
 			...mapMutations({increment:'JIA',decrement:'JIAN'}),
